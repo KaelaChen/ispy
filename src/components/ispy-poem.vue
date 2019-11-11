@@ -1,0 +1,41 @@
+<template>
+  <div>
+    <p>I spy</p>
+    <p
+      v-for="(item, index) of items"
+      :key="index"
+      :class="{ found: item.found }"
+    >
+      {{ item.phrase }}
+    </p>
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    items: {
+      type: Array,
+      required: true
+    }
+  }
+}
+</script>
+
+<style scoped>
+div {
+  position: absolute;
+  bottom: 2%;
+  left: 10%;
+  width: 80%;
+  background: white;
+  padding: 1em;
+  z-index: 1;
+}
+p {
+  display: inline;
+}
+.found {
+  color: rgb(65, 100, 255);
+}
+</style>
