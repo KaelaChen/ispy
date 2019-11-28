@@ -24,7 +24,7 @@
       @log-item="logItem($event)"
       @log-done="logDone"
     />
-    <a href="/ispy">Back</a>
+    <p class="router-link"><router-link to="/">Back</router-link></p>
   </div>
 </template>
 <script>
@@ -82,7 +82,7 @@ export default {
 }
 </script>
 <style scoped>
-a {
+.router-link {
   position: fixed;
   top: 5%;
   left: 5%;
