@@ -37,13 +37,16 @@ export default {
           phrase: 'a kitten,',
           image: require('@/assets/school/cat.png'),
           x: 1144,
-          y: 648
+          y: 648,
+          animation: 'flash',
+          found: false
         },
         {
           phrase: 'a heart on a book,',
           image: require('@/assets/school/heart.png'),
           x: 791,
           y: 665,
+          animation: 'heartBeat',
           found: false
         },
         {
@@ -51,7 +54,7 @@ export default {
           image: require('@/assets/school/expo.png'),
           x: 395,
           y: 862,
-          animation: 'fadeIn',
+          animation: 'wobble',
           time: 1,
           found: false
         },
@@ -60,6 +63,7 @@ export default {
           image: require('@/assets/school/domo.png'),
           x: 1576,
           y: 812,
+          animation: 'jello',
           found: false
         },
         {
@@ -67,6 +71,7 @@ export default {
           image: require('@/assets/school/moose.png'),
           x: 1070,
           y: 0,
+          animation: 'fadeIn',
           found: false
         }
       ]

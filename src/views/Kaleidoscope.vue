@@ -36,13 +36,16 @@ export default {
           phrase: 'a paintbrush,',
           image: require('@/assets/kaleidoscope/paintbrush.png'),
           x: 1075,
-          y: 419
+          y: 419,
+          animation: 'pulse',
+          found: false
         },
         {
           phrase: 'a button,',
           image: require('@/assets/kaleidoscope/button.png'),
           x: 1331,
           y: 222,
+          animation: 'rubberBand',
           found: false
         },
         {
@@ -59,6 +62,7 @@ export default {
           image: require('@/assets/kaleidoscope/train_whistle.png'),
           x: 781,
           y: 555,
+          animation: 'heartBeat',
           found: false
         },
         {
@@ -66,6 +70,7 @@ export default {
           image: require('@/assets/kaleidoscope/truck.png'),
           x: 1402,
           y: 902,
+          animation: 'bounce',
           found: false
         }
       ]

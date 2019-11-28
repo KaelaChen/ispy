@@ -36,13 +36,15 @@ export default {
           phrase: 'a clock tower',
           image: require('@/assets/trains/clock_tower.png'),
           x: 1339,
-          y: 157
+          y: 157,
+          found: false
         },
         {
           phrase: 'and a safety guard,',
           image: require('@/assets/trains/safety_guard.png'),
           x: 420,
           y: 158,
+          animation: 'flash',
           found: false
         },
         {
@@ -59,6 +61,7 @@ export default {
           image: require('@/assets/trains/accident.png'),
           x: 433,
           y: 93,
+          animation: 'shake',
           found: false
         },
         {
@@ -66,6 +69,7 @@ export default {
           image: require('@/assets/trains/card.png'),
           x: 1097,
           y: 292,
+          animation: 'flip',
           found: false
         }
       ]
