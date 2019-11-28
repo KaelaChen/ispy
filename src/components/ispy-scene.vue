@@ -24,7 +24,7 @@
       @log-item="logItem($event)"
       @log-done="logDone"
     />
-    <a href="/">Back</a>
+    <a href="/ispy">Back</a>
   </div>
 </template>
 <script>
