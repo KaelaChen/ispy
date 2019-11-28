@@ -23,7 +23,7 @@ export default {
     },
     animation: {
       type: String,
-      default: 'swing'
+      default: 'fadeIn'
     },
     time: {
       type: Number,
@@ -53,14 +53,8 @@ export default {
   },
   data() {
     return {
+      loaded: false,
       animating: false,
-      containerStyle: {
-        position: 'absolute',
-        left: this.x * this.scale + 'px',
-        top: this.y * this.scale + 'px',
-        width: 'auto',
-        height: 'auto'
-      },
       itemStyle: {
         width: '100%',
         height: '100%'
@@ -69,13 +63,33 @@ export default {
   },
   mounted() {
     document.getElementById(this.image).onload = () => {
-      this.containerStyle.width =
-        document.getElementById(this.image).naturalWidth * this.scale + 'px'
-      this.containerStyle.height =
-        document.getElementById(this.image).naturalHeight * this.scale + 'px'
+      this.loaded = true
     }
   },
   computed: {
+    containerStyle() {
+      if (this.loaded) {
+        return {
+          position: 'absolute',
+          left: this.x * this.scale + 'px',
+          top: this.y * this.scale + 'px',
+          width:
+            document.getElementById(this.image).naturalWidth * this.scale +
+            'px',
+          height:
+            document.getElementById(this.image).naturalHeight * this.scale +
+            'px'
+        }
+      } else {
+        return {
+          position: 'absolute',
+          left: this.x * this.scale + 'px',
+          top: this.y * this.scale + 'px',
+          width: 'auto',
+          height: 'auto'
+        }
+      }
+    },
     animClass() {
       if (this.animating) {
         return 'animated ' + this.animation
