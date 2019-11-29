@@ -76,6 +76,7 @@ export default {
       if (this.loaded) {
         return {
           position: 'absolute',
+          lineHeight: '0',
           left: this.x * this.scale + 'px',
           top: this.y * this.scale + 'px',
           width:
@@ -88,6 +89,7 @@ export default {
       } else {
         return {
           position: 'absolute',
+          lineHeight: '0',
           left: this.x * this.scale + 'px',
           top: this.y * this.scale + 'px',
           width: 'auto',
