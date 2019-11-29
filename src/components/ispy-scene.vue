@@ -1,7 +1,7 @@
 <template>
   <div :style="scene">
     <img :src="background" class="fixed-bg" />
-    <ispy-poem :items="items" />
+    <ispy-poem v-if="showpoem" :items="items" />
     <ispy-item
       :id="-1"
       :image="extra.image"
@@ -52,6 +52,10 @@ export default {
     ratio: {
       type: Number,
       required: true
+    },
+    showpoem: {
+      type: Boolean,
+      required: true
     }
   },
   data() {
@@ -68,6 +72,13 @@ export default {
     },
     logDone() {
       this.canClick = true
+      let win = true
+      for (let item of this.items) {
+        if (!item.found) win = false
+      }
+      if (win) {
+        this.$emit('win')
+      }
     }
   },
   computed: {

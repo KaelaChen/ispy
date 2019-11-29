@@ -3,7 +3,7 @@
     <div
       style="display: flex; justify-content: center; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;"
     >
-      <router-view :ratio="ratio" />
+      <router-view :ratio="ratio" @win="winLevel" :wins="wins" />
     </div>
   </div>
 </template>
@@ -12,7 +12,12 @@
 export default {
   data() {
     return {
-      ratio: 0
+      ratio: 0,
+      wins: {
+        trains: false,
+        kal: false,
+        sch: false
+      }
     }
   },
   methods: {
@@ -21,6 +26,9 @@ export default {
       let height = Math.min(1080, window.innerHeight)
       let ratio = Math.min(width / 1920, height / 1080)
       this.ratio = ratio
+    },
+    winLevel(lvl) {
+      this.wins[lvl] = true
     }
   },
   mounted() {

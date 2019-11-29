@@ -4,6 +4,8 @@
     :items="items"
     :extra="extra"
     :ratio="ratio"
+    :showpoem="!wins.trains"
+    @win="$emit('win', 'trains')"
   >
   </ispy-scene>
 </template>
@@ -18,6 +20,10 @@ export default {
     'ispy-scene': Scene
   },
   props: {
+    wins: {
+      type: Object,
+      required: true
+    },
     ratio: {
       type: Number,
       required: true

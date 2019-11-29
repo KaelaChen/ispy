@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="poem">
     <p>I spy</p>
     <p
       v-for="(item, index) of items"
@@ -22,8 +22,8 @@ export default {
 }
 </script>
 
-<style scoped>
-div {
+<style>
+.poem {
   position: absolute;
   bottom: 2%;
   left: 10%;
@@ -32,10 +32,10 @@ div {
   padding: 1em;
   z-index: 1;
 }
-p {
+.poem p {
   display: inline;
 }
-.found {
+.poem .found {
   color: rgb(65, 100, 255);
 }
 </style>

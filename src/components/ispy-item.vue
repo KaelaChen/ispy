@@ -6,6 +6,7 @@
       :class="animClass"
       :style="itemStyle"
       @click="foundItem"
+      @mouseover="hoverAnim"
     />
   </div>
 </template>
@@ -31,11 +32,11 @@ export default {
     },
     x: {
       type: Number,
-      required: true
+      default: 0
     },
     y: {
       type: Number,
-      required: true
+      default: 0
     },
     jingle: {
       // likely unused
@@ -49,6 +50,10 @@ export default {
     scale: {
       type: Number,
       default: 1
+    },
+    hovery: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -106,6 +111,14 @@ export default {
         setTimeout(() => {
           this.animating = false
           this.$emit('log-done')
+        }, this.time * 600)
+      }
+    },
+    hoverAnim() {
+      if (this.hovery) {
+        this.animating = true
+        setTimeout(() => {
+          this.animating = false
         }, this.time * 600)
       }
     }
