@@ -43,7 +43,7 @@ export default {
           image: require('@/assets/kaleidoscope/paintbrush.png'),
           x: 1075,
           y: 419,
-          animation: 'pulse',
+          animation: 'rollOut',
           found: false
         },
         {

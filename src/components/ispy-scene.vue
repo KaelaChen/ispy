@@ -106,7 +106,17 @@ export default {
 <style scoped>
 .router-link {
   position: fixed;
-  top: 5%;
-  left: 5%;
+  top: 3%;
+  left: 3%;
+}
+.router-link a {
+  background-color: #ffffff77;
+  padding: 1em;
+  color: rgb(65, 100, 255);
+  text-decoration: none;
+}
+.router-link a:hover {
+  background-color: #ffdfdf77;
+  color: #ff8888;
 }
 </style>
