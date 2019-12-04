@@ -1,31 +1,34 @@
 <template>
-  <div :style="scene">
-    <img :src="background" class="fixed-bg" />
-    <ispy-poem v-if="showpoem" :items="items" />
-    <ispy-item
-      :id="-1"
-      :image="extra.image"
-      :x="extra.x"
-      :y="extra.y"
-      :scale="ratio"
-      animation="none"
-    />
-    <ispy-item
-      v-for="(item, index) of items"
-      :key="item.phrase"
-      :id="index"
-      :image="item.image"
-      :x="item.x"
-      :y="item.y"
-      :scale="ratio"
-      :animation="item.animation"
-      :time="item.time"
-      :clickable="canClick"
-      @log-item="logItem($event)"
-      @log-done="logDone"
-    />
-    <p class="router-link"><router-link to="/">Back</router-link></p>
-  </div>
+  <transition enter-active-class="animated fadeIn">
+    <div v-show="showScene" :style="scene">
+      <img :src="background" class="fixed-bg" />
+      <ispy-poem v-if="showpoem" :items="items" />
+      <ispy-item
+        :id="-1"
+        :image="extra.image"
+        :x="extra.x"
+        :y="extra.y"
+        :scale="ratio"
+        animation="none"
+      />
+      <ispy-item
+        v-for="(item, index) of items"
+        :key="item.phrase"
+        :id="index"
+        :image="item.image"
+        :x="item.x"
+        :y="item.y"
+        :scale="ratio"
+        :animation="item.animation"
+        :time="item.time"
+        :clickable="canClick"
+        @log-item="logItem($event)"
+        @log-done="logDone"
+        @has-load="loadDone"
+      />
+      <p class="router-link"><router-link to="/">Back</router-link></p>
+    </div>
+  </transition>
 </template>
 <script>
 import Item from '@/components/ispy-item.vue'
@@ -60,6 +63,8 @@ export default {
   },
   data() {
     return {
+      showScene: false,
+      loaded: 0,
       canClick: true
     }
   },
@@ -78,6 +83,12 @@ export default {
       }
       if (win) {
         this.$emit('win')
+      }
+    },
+    loadDone() {
+      this.loaded++
+      if (this.loaded >= this.items.length) {
+        this.showScene = true
       }
     }
   },

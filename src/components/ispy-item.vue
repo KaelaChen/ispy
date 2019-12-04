@@ -69,6 +69,7 @@ export default {
   mounted() {
     document.getElementById(this.image).onload = () => {
       this.loaded = true
+      this.$emit('has-load')
     }
   },
   computed: {
